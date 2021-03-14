@@ -5,10 +5,10 @@ import com.clusus.payroll.shared.domain.core.ValueObject;
 import java.util.Objects;
 
 public class SalaryId extends ValueObject {
-    private final String value;
+    private final Long value;
 
-    public SalaryId(String value) {
-        this.value = value.trim();
+    public SalaryId(Long value) {
+        this.value = value;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class SalaryId extends ValueObject {
         return Objects.equals(this.value, that.value);
     }
 
-    public String getValue() {
+    public Long getValue() {
         return value;
     }
 }

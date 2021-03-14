@@ -4,11 +4,11 @@ import com.clusus.payroll.shared.domain.core.ValueObject;
 
 import java.util.Objects;
 
-public class EPFId extends ValueObject {
-    private final Long value;
+public class EmployeeId extends ValueObject {
+    private final String value;
 
-    public EPFId(Long value) {
-        this.value = value;
+    public EmployeeId(String value) {
+        this.value = value.trim();
     }
 
     @Override
@@ -20,11 +20,11 @@ public class EPFId extends ValueObject {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        EPFId that = (EPFId) other;
+        EmployeeId that = (EmployeeId) other;
         return Objects.equals(this.value, that.value);
     }
 
-    public Long getValue() {
+    public String getValue() {
         return value;
     }
 }

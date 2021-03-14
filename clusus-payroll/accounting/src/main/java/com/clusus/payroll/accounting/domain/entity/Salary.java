@@ -14,6 +14,11 @@ public class Salary extends Entity<SalaryId> {
         super(salaryId);
     }
 
+    public void release(LocalDate entryDate, Money amount) {
+        this.entryDate = entryDate;
+        this.amount = amount;
+    }
+
     public LocalDate getEntryDate() {
         return entryDate;
     }

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class SalaryModel {
+    private Long id;
     private LocalDate entryDate;
     private BigDecimal amount;
 }

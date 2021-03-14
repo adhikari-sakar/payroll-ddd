@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class CITModel {
+    private Long id;
     private Boolean enabled;
     private Boolean autoCalculate;
     private Double rate;

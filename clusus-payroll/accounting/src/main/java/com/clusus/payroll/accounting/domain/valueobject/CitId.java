@@ -5,10 +5,10 @@ import com.clusus.payroll.shared.domain.core.ValueObject;
 import java.util.Objects;
 
 public class CitId extends ValueObject {
-    private final String value;
+    private final Long value;
 
-    public CitId(String value) {
-        this.value = value.trim();
+    public CitId(Long value) {
+        this.value = value;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class CitId extends ValueObject {
         return Objects.equals(this.value, that.value);
     }
 
-    public String getValue() {
+    public Long getValue() {
         return value;
     }
 }

@@ -1,6 +1,5 @@
 package com.clusus.payroll.application.repository.employee;
 
-import com.clusus.payroll.employee.domain.entity.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

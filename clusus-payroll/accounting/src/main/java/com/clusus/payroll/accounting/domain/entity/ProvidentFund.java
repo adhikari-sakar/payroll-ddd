@@ -18,6 +18,14 @@ public class ProvidentFund extends Entity<EPFId> {
         super(epfId);
     }
 
+    public void release(Boolean enabled, Boolean autoCalculate, Rate rate, Money amount, LocalDate entryDate) {
+        this.enabled = enabled;
+        this.autoCalculate = autoCalculate;
+        this.rate = rate;
+        this.amount = amount;
+        this.entryDate = entryDate;
+    }
+
     public Boolean getEnabled() {
         return enabled;
     }

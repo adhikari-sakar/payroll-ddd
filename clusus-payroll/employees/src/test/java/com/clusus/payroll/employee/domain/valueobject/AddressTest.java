@@ -16,7 +16,7 @@ class AddressTest {
     }
 
     @Test
-    public void whenAddressAreNotSameThenAddressAreNotEqual() {
+    public void whenAddressAreDifferentThenAddressAreNotEqual() {
         Address address1 = new Address("testCurrent1", "testPermanent1");
         Address address2 = new Address("testCurrent2", "testPermanent2");
         assertThat(address1).isNotEqualTo(address2);

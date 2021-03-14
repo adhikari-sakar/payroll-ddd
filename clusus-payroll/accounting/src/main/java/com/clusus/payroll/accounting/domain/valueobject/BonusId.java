@@ -5,10 +5,10 @@ import com.clusus.payroll.shared.domain.core.ValueObject;
 import java.util.Objects;
 
 public class BonusId extends ValueObject {
-    private final String value;
+    private final Long value;
 
-    public BonusId(String value) {
-        this.value = value.trim();
+    public BonusId(Long value) {
+        this.value = value;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class BonusId extends ValueObject {
         return Objects.equals(this.value, that.value);
     }
 
-    public String getValue() {
+    public Long getValue() {
         return value;
     }
 }

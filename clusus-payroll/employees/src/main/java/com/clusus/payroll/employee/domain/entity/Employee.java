@@ -37,6 +37,7 @@ public class Employee extends AggregateRoot<EmployeeId> {
         this.department = department;
     }
 
+
     public void applyStatus(Status status) {
         this.status = status;
     }

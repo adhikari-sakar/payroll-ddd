@@ -26,13 +26,10 @@ public class Name extends ValueObject {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        return hasSameName((Name) other);
-    }
-
-    private boolean hasSameName(Name other) {
-        return Objects.equals(this.firstName, other.firstName) &&
-                Objects.equals(this.middleName, other.middleName) &&
-                Objects.equals(this.lastName, other.lastName);
+        Name that = (Name) other;
+        return Objects.equals(this.firstName, that.firstName) &&
+                Objects.equals(this.middleName, that.middleName) &&
+                Objects.equals(this.lastName, that.lastName);
     }
 
     public String getFirstName() {

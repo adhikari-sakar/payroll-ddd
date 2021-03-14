@@ -17,7 +17,9 @@ public class Contact extends ValueObject {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(email.getValue()) + Objects.hashCode(primary.getNumber()) + Objects.hashCode(secondary.getNumber());
+        return Objects.hashCode(this.email.getValue())
+                + Objects.hashCode(this.primary.getNumber())
+                + Objects.hashCode(this.secondary.getNumber());
     }
 
     @Override
