@@ -1,0 +1,21 @@
+department:
+  names:
+    - RND
+    - Support
+    - HR
+    - Account
+role:
+  names:
+    - Developer
+    - Director
+    - Product Owner
+    - Manager
+    - Business Analyst
+    - Team Lead
+team:
+  names:
+    - Vega
+    - Accacia
+    - Mars
+    - Jupiter
+    - Earth

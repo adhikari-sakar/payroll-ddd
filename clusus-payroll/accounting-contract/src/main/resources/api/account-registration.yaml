@@ -1,0 +1,153 @@
+openapi: 3.0.9
+info:
+  title: Accounting API
+  description: Clusus Employee Accounting API
+  contact:
+    email: vega@progressoft.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
+security:
+  - bearerAuth: []
+paths:
+  /app/v1/employee/accounting:
+    post:
+      tags:
+        - Accounting
+      summary: employees accounting
+      operationId: registerAccount
+      security:
+        - OAuth2:
+            - scope_register_account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountingRegistrationRequest'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommonResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ViolationResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Access token not found or  does not have the required scope
+        '404':
+          description: Not Found
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: ""
+          scopes:
+            scope_register_account: Register New Employee Account
+  schemas:
+    AccountingRegistrationRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          example: '22'
+        employeeId:
+          type: string
+          example: 'u570'
+        joinedDate:
+          type: string
+          example: '2020-03-06'
+        currencyCode:
+          type: string
+          example: 'NPR'
+        salary:
+          type: object
+          properties:
+            amount:
+              type: number
+              example: '100000.0'
+        allowance:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              example: 'true'
+            amount:
+              type: number
+              example: '100000.0'
+        providentFund:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              example: 'true'
+            autoCalculate:
+              type: boolean
+              example: 'false'
+            rate:
+              type: number
+              example: '0.10'
+            amount:
+              type: number
+              example: '100000.0'
+        cit:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              example: 'false'
+            autoCalculate:
+              type: boolean
+              example: 'true'
+            rate:
+              type: number
+              example: '0.33'
+            amount:
+              type: number
+              example: '100000.0'
+      required:
+        - requestId
+        - joinedDate
+        - currencyCode
+        - salary
+        - allowance
+        - providentFund
+        - cit
+    CommonResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          example: '22'
+        status:
+          type: string
+          example: 'CREATED'
+        uuid:
+          type: string
+          example: 'f03a505d-0b5f-449d-9564-d00a8605aff4'
+          format: udid
+      required:
+        - requestId
+        - status
+        - uuid
+    ViolationResponse:
+      type: array
+      items:
+        properties:
+          property:
+            type: string
+            example: requestId
+          message:
+            type: string
+            example: 'This is required'
+
